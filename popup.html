@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- <meta charset="utf-8"> -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- <meta http-equiv=“Content-Type” content=“text/html; charset=utf-8”> -->
     <link rel="stylesheet" href="button.css">
   </head>
 
@@ -12,6 +15,7 @@
     bottom: 0;
     width: 100%;
   }
+
   </style>
 
   <body>
@@ -22,6 +26,16 @@
       <input type="text" id="notes" name="notes"><br><br>
       <div id='message'>Injecting Script....</div>
     </div>
+
+    <!-- <form> -->
+    <!-- <div class = "radioButts"> -->
+    <input type="radio" id="savejob" name="status" value="SaveJob" checked="checked">
+    <label for="savejob">Save Job!</label>
+    <br><input type="radio" id="applied" name="status" value="Applied">
+    <label for="applied">Applied!</label>
+    <!-- </div> -->
+    <!-- </form> -->
+
     <script src="popup.js"></script>
     <div class="navbar">
       <button id="submitURL">Submit</button>

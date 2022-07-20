@@ -1,20 +1,19 @@
-// Initialize button with user's preferred color
-// import 'object-sizeof' as sizeof
-// var sizeof = require('object-sizeof')
+
 
 let changeColor = document.getElementById("changeColor");
 
-let username = "caduma";
+let username = "test33";
 let submitButton = document.getElementById("submitURL");
 let url;
 let notes;
 notes = document.getElementById("notes");
-// notes = notes.replace(/(\r\n|\n|\r)/gm, " ");
 let id;
 let data;
 let x;
 let y;
 let html;
+let jobstatus;
+
 
 
 const getSizeInBytes = obj => {
@@ -64,10 +63,21 @@ const tabID = getTabId();
 
 
 function myAlert(){
+  var ele = document.getElementsByName('status');
+  for(i = 0; i < ele.length; i++) {
+      if(ele[i].checked){
+        jobstatus = ele[i].value;
+        // document.getElementById("message").innerHTML = "Gender: "+ele[i].value;
+        // console.log("found it!");
+        // console.log(ele[i].value);
+      }
+  }
+
   const tabID = getTabId();
   let xhr = new XMLHttpRequest();
   // xhr.open("POST", "https://apply-away2.herokuapp.com/movies");
-  xhr.open("POST", "https://applyawaylaunch.herokuapp.com/");
+  // xhr.open("POST", "https://applyawaylaunch.herokuapp.com/");
+  xhr.open("POST", "http://0.0.0.0:5000/");
 
   // const tabID = getTabId();
 
@@ -146,13 +156,18 @@ function myAlert(){
 
   chrome.runtime.onMessage.addListener(async function(request, sender) {
   if (request.action == "getSource") {
+    // x = request.source
     message.innerText = request.source; ////////////////////////////////////
-    html = request.source
+    // html = request.source
     x = message.innerText;
+    // y = message.innerText;
+    // x = y
     // y = x.substr(1,10);
+    // setTimeout(() => {  console.log("World!"); }, 5000);
+    // x = request.source;
     y = x.substr(1,10);
-    data = x;
-    data = username + "\n" + url + "\n" + notes.value + "\n" + x;
+    // data = x;
+    data = jobstatus + "\n" + username + "\n" + url + "\n" + notes.value + "\n" + x;
 
     // xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Content-Type", "text/html");
